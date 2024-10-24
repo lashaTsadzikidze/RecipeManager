@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page - Recipes</title>
+</head>
+<body>
+
+    <h1> Recipes </h1>
+
+    <ul>
+        {% for recipe in recipes %}
+            <a href="{% url 'recipe_details' recipe.id %}"> <li> {{ recipe.name }} </li> </a>
+            <p> {{ recipe.ingredients }} </p>
+            <p> {{ recipe.instructions }} </p>
+            <a href="{% url 'edit_recipe' recipe.id %}"> edit recipe </a>
+            <br>
+            <br><br>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'add_recipe' %}">Add new recipe</a>
+    
+</body>
+</html>
